@@ -1,0 +1,17 @@
+name: Notificar al subir código
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notificar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar Hola Mundo
+        run: node hola.js
+
+      - name: Enviar notificación a ntfy.sh
+        run: |
+          curl -d "Código actualizado en la rama main de tu repositorio 🚀" ntfy.sh/devops-itla
